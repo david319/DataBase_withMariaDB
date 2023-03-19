@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
@@ -11,7 +13,8 @@ class UiFrame(object):
         Frame.resize(900, 600)
         self.stackedWidget = QStackedWidget(Frame)
         self.stackedWidget.setObjectName(u"stackedWidget")
-        self.stackedWidget.setGeometry(QRect(0, 0, 900, 600))
+        self.stackedWidget.setEnabled(True)
+        self.stackedWidget.setGeometry(QRect(-1, 0, 900, 600))
         self.pageLog = QWidget()
         self.pageLog.setObjectName(u"pageLog")
         self.pageLog.setEnabled(True)
@@ -127,30 +130,361 @@ class UiFrame(object):
         self.gridLayout_3.addItem(self.horizontalSpacer_3, 2, 0, 1, 1)
 
         self.stackedWidget.addWidget(self.pageLog)
-        self.page_2 = QWidget()
-        self.page_2.setObjectName(u"page_2")
-        self.stackedWidget.addWidget(self.page_2)
+        self.pageOptions = QWidget()
+        self.pageOptions.setGeometry(QRect(0, 0, 900, 600))
+        self.pageOptions.setObjectName(u"pageOptions")
+        self.frame = QFrame(self.pageOptions)
+        self.frame.setObjectName(u"frame")
+        self.frame.setGeometry(QRect(0, 0, 121, 600))
+        self.frame.setStyleSheet(u"QFrame{\n"
+                                 "Background: rgb(42, 53, 66)\n"
+                                 "}\n"
+                                 "")
+        self.frame.setFrameShape(QFrame.StyledPanel)
+        self.frame.setFrameShadow(QFrame.Raised)
+        self.verticalLayout = QVBoxLayout(self.frame)
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.label_9 = QLabel(self.frame)
+        self.label_9.setObjectName(u"label_9")
+        self.label_9.setAutoFillBackground(False)
+        self.label_9.setPixmap(QPixmap("icons_rc/User.png"))
+        self.label_9.setScaledContents(False)
+        self.label_9.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout.addWidget(self.label_9)
+
+        self.accessBut = QPushButton(self.frame)
+        self.accessBut.setObjectName(u"accessBut")
+        font3 = QFont()
+        font3.setFamily(u"Segoe WP Semibold")
+        font3.setBold(True)
+        font3.setWeight(75)
+        self.accessBut.setFont(font3)
+        self.accessBut.setStyleSheet(u"QPushButton{\n"
+                                     "color: rgb(245, 245, 245);\n"
+                                     "border-radius: 25px;\n"
+                                     "border: 2px solid  rgb(25, 225, 175);\n"
+                                     "padding: 20px;\n"
+                                     " width: 10px;\n"
+                                     " height: 10px;\n"
+                                     "}\n"
+                                     "\n"
+                                     ".QPushButton:hover {\n"
+                                     "    background-color: rgb(25, 225, 175);\n"
+                                     "    color: black;\n"
+                                     "}")
+
+        self.verticalLayout.addWidget(self.accessBut)
+
+        self.label_10 = QLabel(self.frame)
+        self.label_10.setObjectName(u"label_10")
+        self.label_10.setPixmap(QPixmap("icons_rc/Compras.png"))
+        self.label_10.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout.addWidget(self.label_10)
+
+        self.comprasBut = QPushButton(self.frame)
+        self.comprasBut.setObjectName(u"comprasBut")
+        self.comprasBut.setFont(font3)
+        self.comprasBut.setStyleSheet(u"QPushButton{\n"
+                                      "color: rgb(245, 245, 245);\n"
+                                      "border-radius: 25px;\n"
+                                      "border: 2px solid  rgb(25, 225, 175);\n"
+                                      "padding: 20px;\n"
+                                      " width: 10px;\n"
+                                      " height: 10px;\n"
+                                      "}\n"
+                                      "\n"
+                                      ".QPushButton:hover {\n"
+                                      "    background-color: rgb(25, 225, 175);\n"
+                                      "    color: black;\n"
+                                      "}")
+
+        self.verticalLayout.addWidget(self.comprasBut)
+
+        self.label_11 = QLabel(self.frame)
+        self.label_11.setObjectName(u"label_11")
+        self.label_11.setPixmap(QPixmap("icons_rc/Ventas.png"))
+        self.label_11.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout.addWidget(self.label_11)
+
+        self.ventasBut = QPushButton(self.frame)
+        self.ventasBut.setObjectName(u"ventasBut")
+        self.ventasBut.setStyleSheet(u"QPushButton{\n"
+                                     "color: rgb(245, 245, 245);\n"
+                                     "border-radius: 25px;\n"
+                                     "border: 2px solid  rgb(25, 225, 175);\n"
+                                     "padding: 20px;\n"
+                                     " width: 10px;\n"
+                                     " height: 10px;\n"
+                                     "}\n"
+                                     "\n"
+                                     ".QPushButton:hover {\n"
+                                     "    background-color: rgb(25, 225, 175);\n"
+                                     "    color: black;\n"
+                                     "}")
+
+        self.verticalLayout.addWidget(self.ventasBut)
+
+        self.label_12 = QLabel(self.frame)
+        self.label_12.setObjectName(u"label_12")
+        self.label_12.setPixmap(QPixmap("icons_rc/Productos.png"))
+        self.label_12.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout.addWidget(self.label_12)
+
+        self.productsBut = QPushButton(self.frame)
+        self.productsBut.setObjectName(u"productsBut")
+        self.productsBut.setStyleSheet(u"QPushButton{\n"
+                                       "color: rgb(245, 245, 245);\n"
+                                       "border-radius: 25px;\n"
+                                       "border: 2px solid  rgb(25, 225, 175);\n"
+                                       "padding: 20px;\n"
+                                       " width: 10px;\n"
+                                       " height: 10px;\n"
+                                       "}\n"
+                                       "\n"
+                                       ".QPushButton:hover {\n"
+                                       "    background-color: rgb(25, 225, 175);\n"
+                                       "    color: black;\n"
+                                       "}")
+
+        self.verticalLayout.addWidget(self.productsBut)
+
+        self.label_13 = QLabel(self.frame)
+        self.label_13.setObjectName(u"label_13")
+        self.label_13.setPixmap(QPixmap("icons_rc/Proveedor.png"))
+        self.label_13.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout.addWidget(self.label_13)
+
+        self.provBut = QPushButton(self.frame)
+        self.provBut.setObjectName(u"provBut")
+        self.provBut.setStyleSheet(u"QPushButton{\n"
+                                   "color: rgb(245, 245, 245);\n"
+                                   "border-radius: 25px;\n"
+                                   "border: 2px solid  rgb(25, 225, 175);\n"
+                                   "padding: 20px;\n"
+                                   " width: 10px;\n"
+                                   " height: 10px;\n"
+                                   "}\n"
+                                   "\n"
+                                   ".QPushButton:hover {\n"
+                                   "    background-color: rgb(25, 225, 175);\n"
+                                   "    color: black;\n"
+                                   "}")
+
+        self.verticalLayout.addWidget(self.provBut)
+
+        self.stackedWidget.addWidget(self.pageOptions)
+        self.pageAccesos = QWidget()
+        self.pageAccesos.setObjectName(u"pageAccesos")
+        self.rolesU = QComboBox(self.pageAccesos)
+        self.rolesU.setObjectName(u"rolesU")
+        self.rolesU.setGeometry(QRect(250, 130, 91, 22))
+        self.nameU = QLineEdit(self.pageAccesos)
+        self.nameU.setObjectName(u"nameU")
+        self.nameU.setGeometry(QRect(100, 110, 113, 20))
+        self.apellidoU = QLineEdit(self.pageAccesos)
+        self.apellidoU.setObjectName(u"apellidoU")
+        self.apellidoU.setGeometry(QRect(100, 160, 113, 20))
+        self.verticalLayoutWidget = QWidget(self.pageAccesos)
+        self.verticalLayoutWidget.setObjectName(u"verticalLayoutWidget")
+        self.verticalLayoutWidget.setGeometry(QRect(380, 100, 81, 111))
+        self.verticalLayout_2 = QVBoxLayout(self.verticalLayoutWidget)
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.crearP = QCheckBox(self.verticalLayoutWidget)
+        self.crearP.setObjectName(u"crearP")
+
+        self.verticalLayout_2.addWidget(self.crearP)
+
+        self.leerP = QCheckBox(self.verticalLayoutWidget)
+        self.leerP.setObjectName(u"leerP")
+
+        self.verticalLayout_2.addWidget(self.leerP)
+
+        self.modificarP = QCheckBox(self.verticalLayoutWidget)
+        self.modificarP.setObjectName(u"modificarP")
+
+        self.verticalLayout_2.addWidget(self.modificarP)
+
+        self.eliminarP = QCheckBox(self.verticalLayoutWidget)
+        self.eliminarP.setObjectName(u"eliminarP")
+
+        self.verticalLayout_2.addWidget(self.eliminarP)
+
+        self.crearU = QPushButton(self.pageAccesos)
+        self.crearU.setObjectName(u"crearU")
+        self.crearU.setGeometry(QRect(120, 210, 75, 23))
+        self.nombreR = QLineEdit(self.pageAccesos)
+        self.nombreR.setObjectName(u"nombreR")
+        self.nombreR.setGeometry(QRect(500, 130, 113, 20))
+        self.crearRol = QPushButton(self.pageAccesos)
+        self.crearRol.setObjectName(u"crearRol")
+        self.crearRol.setGeometry(QRect(520, 180, 75, 23))
+        self.label_14 = QLabel(self.pageAccesos)
+        self.label_14.setObjectName(u"label_14")
+        self.label_14.setGeometry(QRect(100, 90, 47, 13))
+        self.label_15 = QLabel(self.pageAccesos)
+        self.label_15.setObjectName(u"label_15")
+        self.label_15.setGeometry(QRect(100, 140, 47, 13))
+        self.label_16 = QLabel(self.pageAccesos)
+        self.label_16.setObjectName(u"label_16")
+        self.label_16.setGeometry(QRect(250, 110, 47, 13))
+        self.label_17 = QLabel(self.pageAccesos)
+        self.label_17.setObjectName(u"label_17")
+        self.label_17.setGeometry(QRect(380, 80, 51, 20))
+        self.stackedWidget.addWidget(self.pageAccesos)
+        self.pageCompras = QWidget()
+        self.pageCompras.setObjectName(u"pageCompras")
+        self.stackedWidget.addWidget(self.pageCompras)
+        self.pageVentas = QWidget()
+        self.pageVentas.setObjectName(u"pageVentas")
+        self.stackedWidget.addWidget(self.pageVentas)
+        self.pageProductos = QWidget()
+        self.pageProductos.setObjectName(u"pageProductos")
+        self.gridLayoutWidget = QWidget(self.pageProductos)
+        self.gridLayoutWidget.setObjectName(u"gridLayoutWidget")
+        self.gridLayoutWidget.setGeometry(QRect(70, 110, 451, 201))
+        self.gridLayout = QGridLayout(self.gridLayoutWidget)
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.gridLayout.setContentsMargins(0, 0, 0, 0)
+        self.cantMinProd = QLineEdit(self.gridLayoutWidget)
+        self.cantMinProd.setObjectName(u"cantMinProd")
+
+        self.gridLayout.addWidget(self.cantMinProd, 3, 1, 1, 1)
+
+        self.cantMaxProd = QLineEdit(self.gridLayoutWidget)
+        self.cantMaxProd.setObjectName(u"cantMaxProd")
+
+        self.gridLayout.addWidget(self.cantMaxProd, 5, 1, 1, 1)
+
+        self.label_22 = QLabel(self.gridLayoutWidget)
+        self.label_22.setObjectName(u"label_22")
+
+        self.gridLayout.addWidget(self.label_22, 4, 0, 1, 1)
+
+        self.precioProd = QLineEdit(self.gridLayoutWidget)
+        self.precioProd.setObjectName(u"precioProd")
+
+        self.gridLayout.addWidget(self.precioProd, 1, 1, 1, 1)
+
+        self.label_23 = QLabel(self.gridLayoutWidget)
+        self.label_23.setObjectName(u"label_23")
+
+        self.gridLayout.addWidget(self.label_23, 4, 1, 1, 1)
+
+        self.costoProd = QLineEdit(self.gridLayoutWidget)
+        self.costoProd.setObjectName(u"costoProd")
+
+        self.gridLayout.addWidget(self.costoProd, 3, 0, 1, 1)
+
+        self.label_21 = QLabel(self.gridLayoutWidget)
+        self.label_21.setObjectName(u"label_21")
+
+        self.gridLayout.addWidget(self.label_21, 2, 1, 1, 1)
+
+        self.addProdBut = QPushButton(self.gridLayoutWidget)
+        self.addProdBut.setObjectName(u"addProdBut")
+
+        self.gridLayout.addWidget(self.addProdBut, 7, 1, 1, 1)
+
+        self.label_19 = QLabel(self.gridLayoutWidget)
+        self.label_19.setObjectName(u"label_19")
+
+        self.gridLayout.addWidget(self.label_19, 0, 1, 1, 1)
+
+        self.marcaProd = QLineEdit(self.gridLayoutWidget)
+        self.marcaProd.setObjectName(u"marcaProd")
+
+        self.gridLayout.addWidget(self.marcaProd, 7, 0, 1, 1)
+
+        self.label_20 = QLabel(self.gridLayoutWidget)
+        self.label_20.setObjectName(u"label_20")
+
+        self.gridLayout.addWidget(self.label_20, 2, 0, 1, 1)
+
+        self.nombreProd = QLineEdit(self.gridLayoutWidget)
+        self.nombreProd.setObjectName(u"nombreProd")
+
+        self.gridLayout.addWidget(self.nombreProd, 1, 0, 1, 1)
+
+        self.label_18 = QLabel(self.gridLayoutWidget)
+        self.label_18.setObjectName(u"label_18")
+
+        self.gridLayout.addWidget(self.label_18, 0, 0, 1, 1)
+
+        self.label_24 = QLabel(self.gridLayoutWidget)
+        self.label_24.setObjectName(u"label_24")
+
+        self.gridLayout.addWidget(self.label_24, 6, 0, 1, 1)
+
+        self.categoriaProd = QLineEdit(self.gridLayoutWidget)
+        self.categoriaProd.setObjectName(u"categoriaProd")
+
+        self.gridLayout.addWidget(self.categoriaProd, 5, 0, 1, 1)
+
+        self.stackedWidget.addWidget(self.pageProductos)
 
         self.retranslateUi(Frame)
 
+        self.stackedWidget.setCurrentIndex(0)
         self.buttonLog_2.setDefault(False)
 
-
         QMetaObject.connectSlotsByName(Frame)
+
     # setupUi
 
     def retranslateUi(self, Frame):
-        Frame.setWindowTitle(QCoreApplication.translate("Frame", u"Frame", None))
+        Frame.setWindowTitle(QCoreApplication.translate("Frame", u"Sistema De Inventario", None))
         self.buttonLog_2.setText(QCoreApplication.translate("Frame", u"Iniciar sesi\u00f3n", None))
         self.label_6.setText(QCoreApplication.translate("Frame", u"Password:", None))
         self.label_7.setText(QCoreApplication.translate("Frame", u"User:", None))
         self.label_8.setText(QCoreApplication.translate("Frame", u"Login", None))
         self.label_2.setText(QCoreApplication.translate("Frame", u"Inventory System", None))
         self.label.setText("")
-# retranslateUi
+        self.label_9.setText("")
+        self.accessBut.setText(QCoreApplication.translate("Frame", u"Accesos", None))
+        self.label_10.setText("")
+        self.comprasBut.setText(QCoreApplication.translate("Frame", u"Compras", None))
+        self.label_11.setText("")
+        self.ventasBut.setText(QCoreApplication.translate("Frame", u"Ventas", None))
+        self.label_12.setText("")
+        self.productsBut.setText(QCoreApplication.translate("Frame", u"Productos", None))
+        self.label_13.setText("")
+        self.provBut.setText(QCoreApplication.translate("Frame", u"Proveedor", None))
+        self.nameU.setText("")
+        self.crearP.setText(QCoreApplication.translate("Frame", u"Crear", None))
+        self.leerP.setText(QCoreApplication.translate("Frame", u"Leer", None))
+        self.modificarP.setText(QCoreApplication.translate("Frame", u"Modificar", None))
+        self.eliminarP.setText(QCoreApplication.translate("Frame", u"Eliminar", None))
+        self.crearU.setText(QCoreApplication.translate("Frame", u"Crear Usuario", None))
+        self.crearRol.setText(QCoreApplication.translate("Frame", u"Crear Rol", None))
+        self.label_14.setText(QCoreApplication.translate("Frame", u"Nombre:", None))
+        self.label_15.setText(QCoreApplication.translate("Frame", u"Apellido:", None))
+        self.label_16.setText(QCoreApplication.translate("Frame", u"Rol:", None))
+        self.label_17.setText(QCoreApplication.translate("Frame", u"Privilegios:", None))
+        self.label_22.setText(QCoreApplication.translate("Frame", u"Categor\u00eda", None))
+        self.label_23.setText(QCoreApplication.translate("Frame", u"Existencia_Max:", None))
+        self.label_21.setText(QCoreApplication.translate("Frame", u"Existencia_Min:", None))
+        self.addProdBut.setText(QCoreApplication.translate("Frame", u"A\u00f1adir Producto", None))
+        self.label_19.setText(QCoreApplication.translate("Frame", u"Precio:", None))
+        self.label_20.setText(QCoreApplication.translate("Frame", u"Costo:", None))
+        self.label_18.setText(QCoreApplication.translate("Frame", u"Nombre:", None))
+        self.label_24.setText(QCoreApplication.translate("Frame", u"Marca:", None))
+    # retranslateUi
 
 
 class MainWindow(QMainWindow, UiFrame):
+    global user
+    global password
+    global userCreate
+    global userChange
+    global dateCreate
+    global dateChange
+
     def __init__(self, parent=None):
         super(MainWindow, self).__init__(parent)
         self.setupUi(self)
@@ -180,9 +514,44 @@ class MainWindow(QMainWindow, UiFrame):
             cur.execute("SELECT User FROM mysql.user")
             print(cur.fetchall())
             self.pageLog.hide()
-            self.page_2.show()
+            self.pageOptions.show()
 
             cur.close()
+        except mariadb.Error as e:
+            print(f"Error connecting to MariaDB Platform: {e}")
+            print("Error al conectar")
+
+    def access(self):
+        self.pageOptions.hide()
+        self.pageAccesos.show()
+
+    def createRol(self):
+        global privilegios
+        global idR
+        nombre = self.nombreR.text()
+        if self.crearP.isChecked() and self.leerP.isChecked() and self.modificarP.isChecked() and \
+                self.eliminarP.isChecked():
+            privilegios = "Admin"
+        elif self.crearP.isChecked() and self.leerP.isChecked() and self.modificarP.isChecked():
+            privilegios = "Supervisor"
+        elif self.crearP.isChecked() and self.leerP.isChecked():
+            privilegios = "Usuario"
+        elif self.leerP.isChecked():
+            privilegios = "Lector"
+
+        try:
+            conn = mariadb.connect(
+                user=user,
+                password=password,
+                host="localhost",
+                port=3306,
+                database="project"
+            )
+            cur = conn.cursor()
+            idR = 0
+            cur.callproc('sp_insetarPrivilegio', (idR, nombre, privilegios, user, datetime.now().strftime("%Y-%m-%d")))
+            idR = idR + 1
+
         except mariadb.Error as e:
             print(f"Error connecting to MariaDB Platform: {e}")
             print("Error al conectar")
